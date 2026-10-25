@@ -9,7 +9,6 @@
         :root {
             --bg-main: #0b0a10;
             --bg-card: #14111f;
-            --bg-card-hover: #1b172d;
             --border-subtle: rgba(139, 92, 246, 0.18);
             --accent: #8b5cf6;
             --accent-soft: rgba(139, 92, 246, 0.15);
@@ -90,12 +89,8 @@
             margin-right: 6px; margin-bottom: 6px;
         }
         .media-box { width: 100%; border-radius: 14px; overflow: hidden; background: #12101b; border: 1px solid var(--border-subtle); margin-bottom: 14px; }
-        .media-box img, .media-box video { width: 100%; display: block; max-height: 260px; object-fit: cover; }
-        .media-placeholder { padding: 40px 16px; text-align: center; color: #a78bfa; font-size: 13px; background: radial-gradient(circle, rgba(139,92,246,0.15), transparent 70%); }
-        .input {
-            width: 100%; padding: 12px; background: #09080e; border: 1px solid var(--border-subtle);
-            border-radius: 12px; color: var(--text-main); font-size: 15px;
-        }
+        .media-box img { width: 100%; display: block; max-height: 260px; object-fit: cover; }
+        .media-placeholder { padding: 40px 16px; text-align: center; color: #a78bfa; font-size: 13px; }
         .pill-selector { display: flex; gap: 8px; flex-wrap: wrap; }
         .pill-btn {
             flex: 1; min-width: 80px; padding: 10px 12px; background: #09080e;
@@ -258,14 +253,14 @@
             `).join('') + `
                 <div class="info-card">
                     <h3>⚙️ Конструктор программы</h3>
-                    <div class="form-group"><span class="form-label" style="color:var(--text-muted); margin-bottom:6px; display:block;">Цель:</span>
+                    <div style="margin-bottom:10px;"><span style="color:var(--text-muted); font-size:13px; display:block; margin-bottom:6px;">Цель:</span>
                         <div class="pill-selector">
                             <button class="pill-btn active" onclick="setBuilder('goal','hypertrophy', this)">Масса</button>
                             <button class="pill-btn" onclick="setBuilder('goal','fatloss', this)">Сушка</button>
                             <button class="pill-btn" onclick="setBuilder('goal','strength', this)">Сила</button>
                         </div>
                     </div>
-                    <div class="form-group" style="margin-top:10px;"><span class="form-label" style="color:var(--text-muted); margin-bottom:6px; display:block;">Тип:</span>
+                    <div style="margin-bottom:10px;"><span style="color:var(--text-muted); font-size:13px; display:block; margin-bottom:6px;">Тип:</span>
                         <div class="pill-selector">
                             <button class="pill-btn active" onclick="setBuilder('programType','FULL BODY', this)">FULL BODY</button>
                             <button class="pill-btn" onclick="setBuilder('programType','SPLIT', this)">SPLIT</button>
@@ -288,8 +283,8 @@
             document.getElementById('generatedPlanBox').innerHTML = plan.map(day => `
                 <div class="info-card"><h3>📅 ${day.dayTitle}</h3>${day.items.map((ex, i) => `
                     <div style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; justify-content:space-between; align-items:center;" onclick="navigate('exerciseDetail', '${ex.slug}')">
-                        <div><div style="font-weight:700; font-size:14px;">${i + 1}.${ex.name}</div><div style="font-size:12px; color:var(--text-muted);">${ex.muscle}</div></div>
-                        <div class="badge" style="margin:0;">${ex.sets} ×${ex.reps}</div>
+                        <div><div style="font-weight:700; font-size:14px;">${i + 1}. ${ex.name}</div><div style="font-size:12px; color:var(--text-muted);">${ex.muscle}</div></div>
+                        <div class="badge" style="margin:0;">${ex.sets} × ${ex.reps}</div>
                     </div>`).join('')}</div>
             `).join('');
         }
@@ -316,7 +311,7 @@
                 <div class="media-box">${images.map(img => `<img src="${img}" onerror="this.outerHTML='<div class=\\'media-placeholder\\'>📸 Фото скоро появится</div>'">`).join('')}</div>
                 <div style="margin-bottom:14px;"><span class="badge">Сложность: ${ex.difficulty}</span><span class="badge">Подходы: ${ex.recommendedSets}</span></div>
                 <div class="info-card"><h3>🎯 Мышцы</h3><div class="info-block"><strong>Главная:</strong> ${ex.muscleGroup}</div><div class="info-block"><strong>Помогают:</strong> ${ex.secondaryMuscles.join(', ')}</div></div>
-                <div class="info-card"><h3>✅ Техника</h3>${ex.steps.map((s, i) => `<div class="info-block"><strong>${i + 1}.</strong>${s}</div>`).join('')}</div>
+                <div class="info-card"><h3>✅ Техника</h3>${ex.steps.map((s, i) => `<div class="info-block"><strong>${i + 1}.</strong> ${s}</div>`).join('')}</div>
                 <div class="info-card"><h3>⚠️ Ошибки</h3>${ex.mistakes.map(m => `<div class="info-block">• ${m}</div>`).join('')}</div>
             `;
         }
@@ -333,7 +328,7 @@
             `).join('');
         }
 
-        // НОВЫЙ ЭКРАН: AI КАЛОРИИ ПО ФОТО
+        // Экран AI Калории по фото
         function renderKBJU(view) {
             view.innerHTML = `
                 <h2 class="section-heading">📸 AI Подсчет калорий по фото</h2>
@@ -354,9 +349,19 @@
         }
 
         function renderProgress(view) {
-            view.innerHTML = `<h2 class="section-heading">📊 Прогресс</h2><div class="info-card"><h3>⚖️ Вес тела</h3><div style="display:flex; gap:8px;"><input id="pBodyWeight" type="number" step="0.1" class="input" placeholder="Кг"><button class="btn-primary" style="width:auto;" onclick="addBodyWeight()">+</button></div></div>`;
+            view.innerHTML = `<h2 class="section-heading">📊 Прогресс</h2><div class="info-card"><h3>⚖️ Вес тела</h3><div style="display:flex; gap:8px;"><input id="pBodyWeight" type="number" step="0.1" class="style="flex:1;" style="background:#09080e; border:1px solid var(--border-subtle); border-radius:12px; color:var(--text-main); padding:12px;" placeholder="Кг"><button class="btn-primary" style="width:auto;" onclick="addBodyWeight()">+</button></div></div>`;
         }
 
         function addBodyWeight() {
             const val = parseFloat(document.getElementById('pBodyWeight').value);
             if (!val) return;
+            let data = JSON.parse(localStorage.getItem('zgc_progress') || '{"weights":[]}');
+            data.weights.push({ val });
+            localStorage.setItem('zgc_progress', JSON.stringify(data));
+            alert('Вес сохранен!');
+        }
+
+        renderCurrent();
+    </script>
+</body>
+</html>
