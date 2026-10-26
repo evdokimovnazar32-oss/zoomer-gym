@@ -11,14 +11,14 @@ const EMOJI_3D = {
     leg: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Body%20parts/Mechanical%20Leg.png",
     arm: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Body%20parts/Mechanical%20Arm.png",
     shield: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Shield.png",
-    target: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Direct%20Hit.png",
+    target: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png",
     avocado: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Avocado.png",
     meat: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Cut%20of%20Meat.png"
 };
 
 function icon3D(key, size = 34) {
     const url = EMOJI_3D[key] || EMOJI_3D.fire;
-    return `<img src="${url}" width="${size}" height="${size}" style="object-fit:contain; display:inline-block; vertical-align:middle; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4));" alt="">`;
+    return `<img src="${url}" width="${size}" height="${size}" onerror="this.onerror=null;this.src='${EMOJI_3D.fire}';" style="object-fit:contain; display:inline-block; vertical-align:middle; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4));" alt="">`;
 }
 
 const APP_DATA = {
@@ -34,7 +34,7 @@ const APP_DATA = {
             icon: "meat",
             title: "Белки (Протеин)",
             what: "Главный строительный материал для мышечных волокон, связок, иммунитета и гормонов.",
-            why: "После силовой тренировки в мышцах возникают микротравмы. Без достатка белка они просто не смогут восстановиться и вырасти.",
+            why: "После силовой тренировки в мышцах возникают микротравмы. Без достатка белка они просто не смогут восстановятся и вырасти.",
             remember: "Держи норму 1.6–2.2 г белка на 1 кг веса тела (курица, яйца, творог, рыба, говядина)."
         },
         {
@@ -55,8 +55,8 @@ const APP_DATA = {
         {
             icon: "biceps",
             title: "Split (Раздельная программа)",
-            what: "Мышечные группы делятся по дням (например: ПН — Грудь/Трицепс, СР — Спина/Бицепс, ПТ — Ноги/Плечи).",
-            remember: "Позволяет дать больший объем нагрузки на конкретную мышцу. Важно соблюдать прогрессию рабочих весов."
+            what: "Программа для более продвинутых атлетов. Мышечные группы делятся по дням (например: ПН — Грудь/Трицепс, СР — Спина/Бицепс, ПТ — Ноги/Плечи).",
+            remember: "Позволяет дать больший объем нагрузки на конкретную мышцу и соблюдать прогрессию весов. При таких тренировках критически важно очень хорошо восстанавливаться: держать крепкий сон (7–9 часов) и минимум стресса."
         }
     ],
     muscleGroups: [
@@ -65,7 +65,7 @@ const APP_DATA = {
         { id: "Ноги", subtitle: "Приседания, жим ногами, румынская тяга", icon: "leg" },
         { id: "Плечи", subtitle: "Армейский жим и махи с гантелями", icon: "bolt" },
         { id: "Руки", subtitle: "Подъемы на бицепс и разгибания на трицепс", icon: "biceps" },
-        { id: "Пресс", subtitle: "Скручивания, подъемы ног и планка", icon: "target" }
+        { id: "Пресс", subtitle: "Скручивания, подъемы ног и планка", icon: "fire" }
     ],
     exercises: [
         {
@@ -218,15 +218,15 @@ const APP_DATA = {
     recovery: [
         {
             icon: "sleep",
-            title: "Глубокий сон (7–9 часов)",
-            what: "Мышцы растут не на тренировке, а во время сна, когда вырабатывается соматотропин (гормон роста) и восстанавливается ЦНС.",
-            remember: "Хронический недосып повышает кортизол, разрушает мышцы и тормозит жиросжигание."
+            title: "Глубокий сон (7–9 часов) и минимум стресса",
+            what: "Мышцы растут не на тренировке, а во время сна, когда вырабатывается гормон роста и восстанавливается центральная нервная система.",
+            remember: "Хронический недосып и высокий стресс повышают кортизол, который разрушает мышцы и тормозит жиросжигание."
         },
         {
             icon: "bolt",
             title: "Дни отдыха и суперкомпенсация",
-            what: "Силовая тренировка запускает стимул, но самой мышечной группе нужно от 48 до 72 часов на восстановление и сверхвосстановление.",
-            remember: "Тренировки одной и той же мышцы каждый день без отдыха ведут к застою и травмам."
+            what: "Силовая тренировка запускает стимул, но самой мышечной группе нужно от 48 до 72 часов на качественное восстановление.",
+            remember: "Тренировки одной и той же мышцы каждый день без отдыха ведут к перетренированности и травмам."
         }
     ],
     supplementsWarning: "Спортпит — это лишь удобное дополнение к обычному рациону (дает не более 5% результата). Главный фундамент — питание, сон и тяжелые тренировки.",
@@ -238,10 +238,10 @@ const APP_DATA = {
 };
 
 function generateWorkoutPlan(state) {
-    const repsMap = { hypertrophy: "8–12", fatloss: "12–15", strength: "5–6" };
-    const setsMap = { hypertrophy: 4, fatloss: 3, strength: 5 };
+    const repsMap = { hypertrophy: "8–12", fatloss: "12–15" };
+    const setsMap = { hypertrophy: 4, fatloss: 3 };
     const r = repsMap[state.goal] || "8–12";
-    const s = setsMap[state.goal] || 3;
+    const s = setsMap[state.goal] || 4;
 
     if (state.programType === "FULL BODY") {
         return [
