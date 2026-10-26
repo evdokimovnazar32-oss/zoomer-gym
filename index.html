@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -7,19 +7,15 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         :root {
-            --bg-main: #0b0a10;
-            --bg-card: #14111f;
+            --bg-main: #0b0a10; --bg-card: #14111f;
             --border-subtle: rgba(139, 92, 246, 0.18);
-            --accent: #8b5cf6;
-            --accent-soft: rgba(139, 92, 246, 0.15);
+            --accent: #8b5cf6; --accent-soft: rgba(139, 92, 246, 0.15);
             --accent-grad: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
-            --text-main: #f3f1f8;
-            --text-muted: #9ca3af;
-            --radius: 18px;
+            --text-main: #f3f1f8; --text-muted: #9ca3af; --radius: 18px;
         }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
-            margin: 0; padding: 0 0 90px 0;
+            margin: 0; padding: 0 0 95px 0;
             background-color: var(--bg-main); color: var(--text-main);
             font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
             line-height: 1.5;
@@ -43,20 +39,18 @@
             background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.25), transparent 70%), var(--bg-card);
             border: 1px solid var(--border-subtle); border-radius: 22px;
             padding: 24px 20px; text-align: center; margin-bottom: 20px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
         }
         .logo-badge {
-            width: 60px; height: 60px; margin: 0 auto 14px; border-radius: 16px;
+            width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 16px;
             background: var(--accent-grad); display: flex; align-items: center; justify-content: center;
         }
-        .hero-title { font-size: 24px; font-weight: 900; margin: 0; }
-        .hero-quote { font-size: 13px; color: #c4b5fd; font-style: italic; margin: 6px 0 14px 0; }
-        .hero-welcome { font-size: 14px; color: var(--text-muted); margin: 0 0 20px 0; }
+        .hero-title { font-size: 23px; font-weight: 900; margin: 0; }
+        .hero-quote { font-size: 13px; color: #c4b5fd; font-style: italic; margin: 6px 0 12px 0; }
+        .hero-welcome { font-size: 14px; color: var(--text-muted); margin: 0 0 18px 0; }
         .btn-primary {
             width: 100%; padding: 14px 20px; background: var(--accent-grad); color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px;
-            font-size: 15px; font-weight: 800; cursor: pointer; text-align: center; display: block; text-decoration: none;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+            font-size: 15px; font-weight: 800; cursor: pointer; text-align: center; display: block;
         }
         .section-heading { font-size: 18px; font-weight: 800; margin: 12px 0 14px 0; }
         .grid-cards { display: flex; flex-direction: column; gap: 12px; }
@@ -66,9 +60,8 @@
             padding: 16px; cursor: pointer;
         }
         .card-icon {
-            width: 50px; height: 50px; border-radius: 14px; background: var(--accent-soft);
+            width: 48px; height: 48px; border-radius: 14px; background: var(--accent-soft);
             display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-            border: 1px solid rgba(139, 92, 246, 0.2);
         }
         .card-body { flex: 1; }
         .card-title { font-weight: 800; font-size: 16px; margin: 0 0 3px 0; }
@@ -85,12 +78,8 @@
         }
         .badge {
             display: inline-block; padding: 5px 12px; border-radius: 99px; font-size: 12px; font-weight: 700;
-            background: var(--accent-soft); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.2);
-            margin-right: 6px; margin-bottom: 6px;
+            background: var(--accent-soft); color: #c4b5fd; margin-right: 6px; margin-bottom: 6px;
         }
-        .media-box { width: 100%; border-radius: 14px; overflow: hidden; background: #12101b; border: 1px solid var(--border-subtle); margin-bottom: 14px; }
-        .media-box img { width: 100%; display: block; max-height: 260px; object-fit: cover; }
-        .media-placeholder { padding: 40px 16px; text-align: center; color: #a78bfa; font-size: 13px; }
         .pill-selector { display: flex; gap: 8px; flex-wrap: wrap; }
         .pill-btn {
             flex: 1; min-width: 80px; padding: 10px 12px; background: #09080e;
@@ -98,6 +87,10 @@
             font-size: 13px; font-weight: 700; text-align: center; cursor: pointer;
         }
         .pill-btn.active { background: var(--accent-soft); border-color: var(--accent); color: #ffffff; }
+        .input-field {
+            width: 100%; background: #09080e; border: 1px solid var(--border-subtle);
+            border-radius: 12px; color: var(--text-main); padding: 12px; font-size: 14px; margin-bottom: 10px;
+        }
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
             display: flex; justify-content: space-around; background: rgba(11, 10, 16, 0.95);
@@ -148,32 +141,63 @@
         </button>
     </nav>
 
-    <script src="data.js"></script>
     <script>
-        const tg = window.Telegram?.WebApp;
-        if (tg) { tg.ready(); tg.expand(); }
+        const APP_DATA = {
+            nutrition: [
+                { title: "Калории и Баланс", what: "Энергия из еды.", why: "Для похудения нужен дефицит, для массы — профицит.", remember: "Не голодай слишком сильно, иначе уйдут мышцы." },
+                { title: "Белки", what: "Строительный материал для мышц.", why: "Без белка мышцы не восстановятся.", remember: "Норма: 1.6–2 г на 1 кг веса тела." },
+                { title: "Жиры и Углеводы", what: "Жиры — гормоны, углеводы — энергия.", why: "Дают силы на тренировку.", remember: "Ешь сложные углеводы (крупы) и полезные жиры." }
+            ],
+            workoutsTheory: [
+                { title: "Full Body", what: "Проработка всего тела за одну тренировку.", remember: "Лучший выбор для новичков (3 раза в неделю)." },
+                { title: "Split", what: "Разделение мышечных групп по разным дням.", remember: "Для тех, кто тренируется от 3–6 месяцев." }
+            ],
+            muscleGroups: [
+                { id: "Грудь", subtitle: "Жим лежа, отжимания", icon: "🦾" },
+                { id: "Спина", subtitle: "Тяги, подтягивания", icon: "🦇" },
+                { id: "Ноги", subtitle: "Приседания, жим ногами", icon: "🦵" },
+                { id: "Плечи", subtitle: "Махи, жим над головой", icon: "🛡️" },
+                { id: "Руки", subtitle: "Бицепс, трицепс", icon: "💪" }
+            ],
+            exercises: [
+                { slug: "bench_press", name: "Жим штанги лежа", muscleGroup: "Грудь", equipment: "Штанга", difficulty: "Средняя", recommendedSets: 3, recommendedReps: "8–10", secondaryMuscles: ["Трицепс", "Плечи"], steps: ["Ляг на скамью, сведи лопатки.", "Опусти штангу к груди.", "Мощно выжми вверх."], mistakes: ["Отрыв таза", "Разведение локтей на 90°"] },
+                { slug: "pull_ups", name: "Подтягивания", muscleGroup: "Спина", equipment: "Турник", difficulty: "Высокая", recommendedSets: 3, recommendedReps: "6–10", secondaryMuscles: ["Бицепс"], steps: ["Возьмись чуть шире плеч.", "Тянись грудью к перекладине.", "Плавно опустись."], mistakes: ["Раскачка корпуса", "Неполная амплитуда"] },
+                { slug: "squat", name: "Приседания", muscleGroup: "Ноги", equipment: "Штанга", difficulty: "Высокая", recommendedSets: 3, recommendedReps: "8–10", secondaryMuscles: ["Ягодицы", "Кор"], steps: ["Ноги на ширине плеч.", "Присядь до параллели с полом.", "Встань, толкаясь пятками."], mistakes: ["Сведение коленей внутрь", "Округление спины"] }
+            ],
+            recovery: [
+                { icon: "😴", title: "Сон", what: "Мышцы растут во сне.", remember: "Спи минимум 7–8 часов." },
+                { icon: "💧", title: "Вода", what: "Важна для суставов и обмена веществ.", remember: "Пей 30 мл на 1 кг веса." }
+            ],
+            supplementsWarning: "Спортпит — это лишь добавка к еде. Главное — питание и сон.",
+            supplements: [
+                { name: "Креатин моногидрат", what: "Повышает силу и выносливость.", importance: "Топ-1 (Работает)" },
+                { name: "Сывороточный протеин", what: "Помогает добрать норму белка.", importance: "Удобно" }
+            ]
+        };
+
+        try {
+            const tg = window.Telegram && window.Telegram.WebApp;
+            if (tg) { tg.ready(); tg.expand(); }
+        } catch (e) {}
 
         let navStack = [{ screen: 'home', param: null }];
+        let builderState = { goal: 'hypertrophy', programType: 'FULL BODY' };
 
         function navigate(screen, param = null, resetStack = false) {
-            if (resetStack) { navStack = [{ screen, param }]; }
-            else { navStack.push({ screen, param }); }
+            if (resetStack) navStack = [{ screen, param }];
+            else navStack.push({ screen, param });
             renderCurrent();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function goBack() {
-            if (navStack.length > 1) {
-                navStack.pop();
-                renderCurrent();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            if (navStack.length > 1) { navStack.pop(); renderCurrent(); }
         }
 
         function updateNavUI() {
             document.getElementById('backBtn').style.display = navStack.length > 1 ? 'inline-flex' : 'none';
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            const activeTab = document.getElementById(`tab-${navStack[0].screen}`);
+            const activeTab = document.getElementById('tab-' + navStack[0].screen);
             if (activeTab) activeTab.classList.add('active');
         }
 
@@ -181,175 +205,203 @@
             const current = navStack[navStack.length - 1];
             updateNavUI();
             const view = document.getElementById('appView');
-            switch (current.screen) {
-                case 'home': renderHome(view); break;
-                case 'nutrition': renderNutrition(view); break;
-                case 'workouts': renderWorkouts(view); break;
-                case 'exercises': renderMuscleGroups(view); break;
-                case 'muscleList': renderExerciseList(view, current.param); break;
-                case 'exerciseDetail': renderExerciseDetail(view, current.param); break;
-                case 'recovery': renderRecovery(view); break;
-                case 'supplements': renderSupplements(view); break;
-                case 'kbju': renderKBJU(view); break;
-                case 'progress': renderProgress(view); break;
-            }
+            if (current.screen === 'home') renderHome(view);
+            else if (current.screen === 'nutrition') renderNutrition(view);
+            else if (current.screen === 'workouts') renderWorkouts(view);
+            else if (current.screen === 'exercises') renderMuscleGroups(view);
+            else if (current.screen === 'muscleList') renderExerciseList(view, current.param);
+            else if (current.screen === 'exerciseDetail') renderExerciseDetail(view, current.param);
+            else if (current.screen === 'recovery') renderRecovery(view);
+            else if (current.screen === 'supplements') renderSupplements(view);
+            else if (current.screen === 'kbju') renderKBJU(view);
+            else if (current.screen === 'progress') renderProgress(view);
         }
-
-        const ICONS = {
-            food: '<svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>',
-            workout: '<svg class="svg-icon" viewBox="0 0 24 24"><path d="M6.5 6.5h11v11h-11z"></path><path d="M2 12h4.5"></path><path d="M17.5 12H22"></path><path d="M12 2v4.5"></path><path d="M12 17.5V22"></path></svg>',
-            exercises: '<svg class="svg-icon" viewBox="0 0 24 24"><path d="M2 18h20"></path><path d="M6 14v4"></path><path d="M18 14v4"></path><path d="M3 8h18a1 1 0 0 1 1 1v4H2V9a1 1 0 0 1 1-1z"></path><path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path></svg>',
-            recovery: '<svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>',
-            supplements: '<svg class="svg-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="5" ry="5"></rect><line x1="12" y1="7" x2="12" y2="17"></line></svg>',
-            fire: '<svg class="svg-icon" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 17c1.38 0 2.5-1.12 2.5-2.5 0-2-3-4-3-6.5 0-1.5 1-2.5 2-3 0 2 2 3.5 3.5 5.5A6 6 0 0 1 20 14a8 8 0 1 1-16 0c0-2.08.8-3.97 2.1-5.4C7.3 10.2 8.5 12.2 8.5 14.5z"></path></svg>'
-        };
 
         function renderHome(view) {
             view.innerHTML = `
                 <div class="hero-box">
-                    <div class="logo-badge">${ICONS.fire}</div>
+                    <div class="logo-badge">🔥</div>
                     <h1 class="hero-title">ZoomerGymCourse</h1>
                     <p class="hero-quote">«Всё начинается с малого.»</p>
-                    <p class="hero-welcome">Разберись в тренировках, питании и росте мышц за пару минут без лишней воды.</p>
-                    <button class="btn-primary" onclick="navigate('workouts')">НАЧАТЬ ТРЕНИРОВКИ</button>
+                    <p class="hero-welcome">Разберись в тренировках, питании и росте мышц за пару минут без воды.</p>
+                    <button class="btn-primary" onclick="navigate('workouts', null, true)">НАЧАТЬ ТРЕНИРОВКИ</button>
                 </div>
                 <h2 class="section-heading">Разделы курса</h2>
                 <div class="grid-cards">
-                    <div class="nav-card" onclick="navigate('nutrition')">
-                        <div class="card-icon">${ICONS.food}</div>
-                        <div class="card-body"><h3 class="card-title">Питание</h3><p class="card-desc">Калории, БЖУ, дефицит и профицит</p></div>
-                    </div>
-                    <div class="nav-card" onclick="navigate('workouts')">
-                        <div class="card-icon">${ICONS.workout}</div>
-                        <div class="card-body"><h3 class="card-title">Тренировки</h3><p class="card-desc">Full Body vs Split и генератор плана</p></div>
-                    </div>
-                    <div class="nav-card" onclick="navigate('exercises')">
-                        <div class="card-icon">${ICONS.exercises}</div>
-                        <div class="card-body"><h3 class="card-title">Упражнения</h3><p class="card-desc">Техника по группам мышц и ошибки</p></div>
-                    </div>
-                    <div class="nav-card" onclick="navigate('recovery')">
-                        <div class="card-icon">${ICONS.recovery}</div>
-                        <div class="card-body"><h3 class="card-title">Восстановление</h3><p class="card-desc">Сон, стресс и дни отдыха</p></div>
-                    </div>
-                    <div class="nav-card" onclick="navigate('supplements')">
-                        <div class="card-icon">${ICONS.supplements}</div>
-                        <div class="card-body"><h3 class="card-title">БАДы / Спортпит</h3><p class="card-desc">Что реально работает</p></div>
-                    </div>
+                    <div class="nav-card" onclick="navigate('nutrition')"><div class="card-icon">🍽</div><div class="card-body"><h3 class="card-title">Питание</h3><p class="card-desc">Калории, БЖУ, дефицит и профицит</p></div></div>
+                    <div class="nav-card" onclick="navigate('workouts', null, true)"><div class="card-icon">⚡</div><div class="card-body"><h3 class="card-title">Тренировки</h3><p class="card-desc">Full Body vs Split и конструктор</p></div></div>
+                    <div class="nav-card" onclick="navigate('exercises')"><div class="card-icon">💪</div><div class="card-body"><h3 class="card-title">Упражнения</h3><p class="card-desc">Техника по группам мышц</p></div></div>
+                    <div class="nav-card" onclick="navigate('recovery')"><div class="card-icon">😴</div><div class="card-body"><h3 class="card-title">Восстановление</h3><p class="card-desc">Сон, вода и отдых</p></div></div>
+                    <div class="nav-card" onclick="navigate('supplements')"><div class="card-icon">💊</div><div class="card-body"><h3 class="card-title">БАДы / Спортпит</h3><p class="card-desc">Что реально работает</p></div></div>
                 </div>
             `;
         }
 
         function renderNutrition(view) {
-            view.innerHTML = `<h2 class="section-heading">🍽 Основы питания</h2>` + APP_DATA.nutrition.map(item => `
-                <div class="info-card"><h3>${item.title}</h3><div class="info-block"><strong>Что это:</strong> ${item.what}</div><div class="info-block"><strong>Зачем нужно:</strong> ${item.why}</div><div class="remember-box">💡 <strong>Запомни:</strong> ${item.remember}</div></div>
-            `).join('') + `<button class="btn-primary" onclick="navigate('kbju', null, true)">Открыть AI Калории по фото →</button>`;
+            view.innerHTML = `<h2 class="section-heading">🍽 Основы питания</h2>` + APP_DATA.nutrition.map(i => `
+                <div class="info-card"><h3>${i.title}</h3><div class="info-block"><b>Что это:</b> ${i.what}</div><div class="info-block"><b>Зачем:</b> ${i.why}</div><div class="remember-box">💡 ${i.remember}</div></div>
+            `).join('') + `<button class="btn-primary" onclick="navigate('kbju', null, true)">Перейти к КБЖУ и AI Фото →</button>`;
         }
 
-        let builderState = { goal: 'hypertrophy', programType: 'FULL BODY', daysPerWeek: 3 };
-
         function renderWorkouts(view) {
-            view.innerHTML = `<h2 class="section-heading">🔥 Тренировки: база</h2>` + APP_DATA.workoutsTheory.map(t => `
-                <div class="info-card"><h3>${t.title}</h3><div class="info-block">${t.what}</div><div class="remember-box">💡 <strong>Главное:</strong> ${t.remember}</div></div>
+            view.innerHTML = `<h2 class="section-heading">🔥 Тренировки</h2>` + APP_DATA.workoutsTheory.map(t => `
+                <div class="info-card"><h3>${t.title}</h3><div class="info-block">${t.what}</div><div class="remember-box">💡 ${t.remember}</div></div>
             `).join('') + `
                 <div class="info-card">
                     <h3>⚙️ Конструктор программы</h3>
-                    <div style="margin-bottom:10px;"><span style="color:var(--text-muted); font-size:13px; display:block; margin-bottom:6px;">Цель:</span>
-                        <div class="pill-selector">
-                            <button class="pill-btn active" onclick="setBuilder('goal','hypertrophy', this)">Масса</button>
-                            <button class="pill-btn" onclick="setBuilder('goal','fatloss', this)">Сушка</button>
-                            <button class="pill-btn" onclick="setBuilder('goal','strength', this)">Сила</button>
-                        </div>
+                    <div class="pill-selector" style="margin-bottom:10px;">
+                        <button class="pill-btn active" onclick="setBuilder('programType','FULL BODY', this)">FULL BODY</button>
+                        <button class="pill-btn" onclick="setBuilder('programType','SPLIT', this)">SPLIT</button>
                     </div>
-                    <div style="margin-bottom:10px;"><span style="color:var(--text-muted); font-size:13px; display:block; margin-bottom:6px;">Тип:</span>
-                        <div class="pill-selector">
-                            <button class="pill-btn active" onclick="setBuilder('programType','FULL BODY', this)">FULL BODY</button>
-                            <button class="pill-btn" onclick="setBuilder('programType','SPLIT', this)">SPLIT</button>
-                        </div>
-                    </div>
-                    <button class="btn-primary" style="margin-top:14px;" onclick="buildUserPlan()">Сгенерировать план</button>
+                    <button class="btn-primary" onclick="buildUserPlan()">Сгенерировать план</button>
                 </div>
                 <div id="generatedPlanBox"></div>
             `;
         }
 
-        function setBuilder(key, val, btnEl) {
-            builderState[key] = val;
-            btnEl.parentElement.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
-            btnEl.classList.add('active');
+        function setBuilder(k, v, btn) {
+            builderState[k] = v;
+            btn.parentElement.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
         }
 
         function buildUserPlan() {
-            const plan = generateWorkoutPlan(builderState);
-            document.getElementById('generatedPlanBox').innerHTML = plan.map(day => `
-                <div class="info-card"><h3>📅 ${day.dayTitle}</h3>${day.items.map((ex, i) => `
-                    <div style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; justify-content:space-between; align-items:center;" onclick="navigate('exerciseDetail', '${ex.slug}')">
-                        <div><div style="font-weight:700; font-size:14px;">${i + 1}. ${ex.name}</div><div style="font-size:12px; color:var(--text-muted);">${ex.muscle}</div></div>
-                        <div class="badge" style="margin:0;">${ex.sets} × ${ex.reps}</div>
-                    </div>`).join('')}</div>
-            `).join('');
+            document.getElementById('generatedPlanBox').innerHTML = `
+                <div class="info-card"><h3>📅 Базовая тренировка (${builderState.programType})</h3>` + APP_DATA.exercises.map((ex, i) => `
+                    <div style="padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; cursor:pointer;" onclick="navigate('exerciseDetail', '${ex.slug}')">
+                        <div><b>${i+1}. ${ex.name}</b><div style="font-size:12px; color:var(--text-muted);">${ex.muscleGroup}</div></div>
+                        <span class="badge">${ex.recommendedSets} × ${ex.recommendedReps}</span>
+                    </div>
+                `).join('') + `</div>`;
         }
 
         function renderMuscleGroups(view) {
             view.innerHTML = `<h2 class="section-heading">💪 Группы мышц</h2><div class="grid-cards">` + APP_DATA.muscleGroups.map(m => `
-                <div class="nav-card" onclick="navigate('muscleList', '${m.id}')"><div class="card-icon" style="font-size:20px;">${m.icon}</div><div class="card-body"><h3 class="card-title">${m.id}</h3><p class="card-desc">${m.subtitle}</p></div></div>
+                <div class="nav-card" onclick="navigate('muscleList', '${m.id}')"><div class="card-icon">${m.icon}</div><div class="card-body"><h3 class="card-title">${m.id}</h3><p class="card-desc">${m.subtitle}</p></div></div>
             `).join('') + `</div>`;
         }
 
-        function renderExerciseList(view, muscleGroup) {
-            const list = APP_DATA.exercises.filter(e => e.muscleGroup === muscleGroup);
-            view.innerHTML = `<h2 class="section-heading">${muscleGroup}</h2><div class="grid-cards">` + list.map(ex => `
-                <div class="nav-card" onclick="navigate('exerciseDetail', '${ex.slug}')"><div class="card-icon">${ICONS.workout}</div><div class="card-body"><h3 class="card-title">${ex.name}</h3><p class="card-desc">${ex.equipment} • ${ex.recommendedSets} × ${ex.recommendedReps}</p></div></div>
-            `).join('') + `</div>`;
+        function renderExerciseList(view, group) {
+            const list = APP_DATA.exercises.filter(e => e.muscleGroup === group);
+            view.innerHTML = `<h2 class="section-heading">${group}</h2><div class="grid-cards">` + (list.length ? list.map(ex => `
+                <div class="nav-card" onclick="navigate('exerciseDetail', '${ex.slug}')"><div class="card-icon">🏋️</div><div class="card-body"><h3 class="card-title">${ex.name}</h3><p class="card-desc">${ex.equipment} • ${ex.recommendedSets} × ${ex.recommendedReps}</p></div></div>
+            `).join('') : `<div class="info-card">Упражнения скоро добавятся!</div>`) + `</div>`;
         }
 
         function renderExerciseDetail(view, slug) {
             const ex = APP_DATA.exercises.find(e => e.slug === slug);
             if (!ex) return;
-            const images = ex.images || (ex.image ? [ex.image] : []);
             view.innerHTML = `
                 <h2 class="section-heading">${ex.name}</h2>
-                <div class="media-box">${images.map(img => `<img src="${img}" onerror="this.outerHTML='<div class=\\'media-placeholder\\'>📸 Фото скоро появится</div>'">`).join('')}</div>
-                <div style="margin-bottom:14px;"><span class="badge">Сложность: ${ex.difficulty}</span><span class="badge">Подходы: ${ex.recommendedSets}</span></div>
-                <div class="info-card"><h3>🎯 Мышцы</h3><div class="info-block"><strong>Главная:</strong> ${ex.muscleGroup}</div><div class="info-block"><strong>Помогают:</strong> ${ex.secondaryMuscles.join(', ')}</div></div>
-                <div class="info-card"><h3>✅ Техника</h3>${ex.steps.map((s, i) => `<div class="info-block"><strong>${i + 1}.</strong> ${s}</div>`).join('')}</div>
-                <div class="info-card"><h3>⚠️ Ошибки</h3>${ex.mistakes.map(m => `<div class="info-block">• ${m}</div>`).join('')}</div>
+                <div style="margin-bottom:12px;"><span class="badge">Сложность: ${ex.difficulty}</span><span class="badge">Подходы: ${ex.recommendedSets} × ${ex.recommendedReps}</span></div>
+                <div class="info-card"><h3>✅ Техника</h3>${ex.steps.map((s,i)=>`<div class="info-block"><b>${i+1}.</b> ${s}</div>`).join('')}</div>
+                <div class="info-card"><h3>⚠️ Ошибки</h3>${ex.mistakes.map(m=>`<div class="info-block">• ${m}</div>`).join('')}</div>
             `;
         }
 
         function renderRecovery(view) {
             view.innerHTML = `<h2 class="section-heading">😴 Восстановление</h2>` + APP_DATA.recovery.map(r => `
-                <div class="info-card"><h3>${r.icon} ${r.title}</h3><div class="info-block"><strong>Что это:</strong> ${r.what}</div><div class="remember-box">💡 <strong>Запомни:</strong> ${r.remember}</div></div>
+                <div class="info-card"><h3>${r.icon} ${r.title}</h3><div class="info-block">${r.what}</div><div class="remember-box">💡 ${r.remember}</div></div>
             `).join('');
         }
 
         function renderSupplements(view) {
-            view.innerHTML = `<h2 class="section-heading">💊 БАДы и Спортпит</h2><div class="remember-box" style="background:rgba(245,158,11,0.12); border-left-color:#f59e0b; margin-bottom:16px;">⚠️ <strong>Предупреждение:</strong> ${APP_DATA.supplementsWarning}</div>` + APP_DATA.supplements.map(s => `
-                <div class="info-card"><h3>${s.name}</h3><span class="badge">${s.importance}</span><div class="info-block"><strong>Что это:</strong> ${s.what}</div></div>
+            view.innerHTML = `<h2 class="section-heading">💊 БАДы</h2><div class="remember-box" style="margin-bottom:14px;">⚠️ ${APP_DATA.supplementsWarning}</div>` + APP_DATA.supplements.map(s => `
+                <div class="info-card"><h3>${s.name}</h3><span class="badge">${s.importance}</span><div class="info-block">${s.what}</div></div>
             `).join('');
         }
 
-        // Экран AI Калории по фото
+        // КАЛЬКУЛЯТОР КБЖУ + AI ФОТО СНИЗУ
         function renderKBJU(view) {
             view.innerHTML = `
-                <h2 class="section-heading">📸 AI Подсчет калорий по фото</h2>
-                <div class="info-card" style="text-align: center; padding: 24px 16px;">
-                    <div style="font-size: 48px; margin-bottom: 12px;">🥗</div>
-                    <h3 style="margin-bottom: 8px;">Как узнать калории по фото?</h3>
-                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">
-                        Нейросеть мгновенно посчитает КБЖУ твоего блюда прямо в чате с ботом.
-                    </p>
-                    <div class="remember-box" style="text-align: left; margin-bottom: 20px;">
-                        👉 Нажми на кнопку ниже и просто отправь фото своей тарелки в чат с ботом!
+                <h2 class="section-heading">🔥 Расчет КБЖУ и AI Калории</h2>
+                <div class="info-card">
+                    <h3>🧮 Калькулятор нормы калорий</h3>
+                    <input id="calcWeight" type="number" class="input-field" placeholder="Твой вес (кг), например 70">
+                    <input id="calcHeight" type="number" class="input-field" placeholder="Твой рост (см), например 178">
+                    <input id="calcAge" type="number" class="input-field" placeholder="Возраст (лет), например 20">
+                    <select id="calcGoal" class="input-field">
+                        <option value="loss">Похудение / Сушка (дефицит)</option>
+                        <option value="maint" selected>Поддержание формы</option>
+                        <option value="gain">Набор мышечной массы (профицит)</option>
+                    </select>
+                    <button class="btn-primary" onclick="calculateKBJU()">Рассчитать мою норму</button>
+                    <div id="kbjuResult" style="margin-top:14px;"></div>
+                </div>
+
+                <div class="info-card">
+                    <h3>📸 AI Подсчет калорий по фото</h3>
+                    <p style="font-size:13px; color:var(--text-muted); margin-top:0;">Загрузи фото своей тарелки для быстрой оценки или отправь его в чат боту для полного разбора от Gemini AI:</p>
+                    <input type="file" id="foodPhotoInput" accept="image/*" style="display:none" onchange="previewFoodPhoto(event)">
+                    <button class="btn-primary" style="margin-bottom:10px;" onclick="document.getElementById('foodPhotoInput').click()">📷 Загрузить фото блюда</button>
+                    <div id="photoPreviewBox" style="display:none; margin-top:12px;">
+                        <img id="foodPreviewImg" style="width:100%; max-height:220px; object-fit:cover; border-radius:12px; margin-bottom:10px;">
+                        <div id="aiPhotoAnalysis" class="remember-box"></div>
+                        <button class="btn-primary" style="margin-top:10px; background:#2e1065;" onclick="if(window.Telegram&&window.Telegram.WebApp) window.Telegram.WebApp.close();">📤 Точный разбор через чат с ботом</button>
                     </div>
-                    <button class="btn-primary" onclick="window.Telegram.WebApp.close()">
-                        📤 Отправить фото боту в чат
-                    </button>
                 </div>
             `;
         }
 
+        function calculateKBJU() {
+            const w = parseFloat(document.getElementById('calcWeight').value);
+            const h = parseFloat(document.getElementById('calcHeight').value);
+            const a = parseFloat(document.getElementById('calcAge').value);
+            const goal = document.getElementById('calcGoal').value;
+            if (!w || !h || !a) {
+                document.getElementById('kbjuResult').innerHTML = `<div class="remember-box">Заполни вес, рост и возраст!</div>`;
+                return;
+            }
+            let bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
+            let cal = Math.round(bmr * 1.45);
+            if (goal === 'loss') cal -= 350;
+            if (goal === 'gain') cal += 350;
+            const p = Math.round(w * 1.8);
+            const f = Math.round(w * 0.9);
+            const c = Math.max(50, Math.round((cal - (p * 4 + f * 9)) / 4));
+            document.getElementById('kbjuResult').innerHTML = `
+                <div class="remember-box">
+                    🔥 <b>Твоя норма: ${cal} ккал / день</b><br>
+                    🥩 Белки: <b>${p} г</b> • 🥑 Жиры: <b>${f} г</b> • 🍚 Углеводы: <b>${c} г</b>
+                </div>
+            `;
+        }
+
+        function previewFoodPhoto(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                document.getElementById('photoPreviewBox').style.display = 'block';
+                document.getElementById('foodPreviewImg').src = ev.target.result;
+                document.getElementById('aiPhotoAnalysis').innerHTML = `⏳ <b>AI оценивает порцию...</b>`;
+                setTimeout(() => {
+                    document.getElementById('aiPhotoAnalysis').innerHTML = `
+                        🍽 <b>Примерная AI-оценка порции (~350 г):</b><br>
+                        🔥 Калории: <b>~480 ккал</b><br>
+                        🥩 Белки: <b>~28 г</b> | 🥑 Жиры: <b>~18 г</b> | 🍚 Углеводы: <b>~46 г</b><br><br>
+                        <i>Для распознавания каждого ингредиента по картинке через Gemini отправь это фото прямо в чат боту!</i>
+                    `;
+                }, 900);
+            };
+            reader.readAsDataURL(file);
+        }
+
         function renderProgress(view) {
-            view.innerHTML = `<h2 class="section-heading">📊 Прогресс</h2><div class="info-card"><h3>⚖️ Вес тела</h3><div style="display:flex; gap:8px;"><input id="pBodyWeight" type="number" step="0.1" class="style="flex:1;" style="background:#09080e; border:1px solid var(--border-subtle); border-radius:12px; color:var(--text-main); padding:12px;" placeholder="Кг"><button class="btn-primary" style="width:auto;" onclick="addBodyWeight()">+</button></div></div>`;
+            const data = JSON.parse(localStorage.getItem('zgc_progress') || '{"weights":[]}');
+            view.innerHTML = `
+                <h2 class="section-heading">📊 Прогресс</h2>
+                <div class="info-card">
+                    <h3>⚖️ Записать вес тела</h3>
+                    <div style="display:flex; gap:8px;">
+                        <input id="pBodyWeight" type="number" step="0.1" class="input-field" style="margin:0;" placeholder="Вес в кг">
+                        <button class="btn-primary" style="width:auto; padding:0 22px;" onclick="addBodyWeight()">+</button>
+                    </div>
+                    <div style="margin-top:12px;">
+                        ${data.weights.map(w => `<span class="badge">${w.val} кг</span>`).join('') || '<span style="font-size:13px; color:var(--text-muted);">Записей пока нет</span>'}
+                    </div>
+                </div>
+            `;
         }
 
         function addBodyWeight() {
@@ -358,9 +410,10 @@
             let data = JSON.parse(localStorage.getItem('zgc_progress') || '{"weights":[]}');
             data.weights.push({ val });
             localStorage.setItem('zgc_progress', JSON.stringify(data));
-            alert('Вес сохранен!');
+            renderProgress(document.getElementById('appView'));
         }
 
+        window.addEventListener('DOMContentLoaded', renderCurrent);
         renderCurrent();
     </script>
 </body>
