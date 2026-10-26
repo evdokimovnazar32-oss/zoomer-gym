@@ -99,7 +99,7 @@
         }
         .pill-selector { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
         .pill-btn {
-            flex: 1; min-width: 85px; padding: 10px 12px; background: #09080f;
+            flex: 1; min-width: 110px; padding: 10px 12px; background: #09080f;
             border: 1px solid var(--border-subtle); border-radius: 12px; color: var(--text-muted);
             font-size: 13px; font-weight: 700; text-align: center; cursor: pointer;
         }
@@ -154,9 +154,9 @@
         </button>
     </nav>
 
-    <script src="data.js?v=100"></script>
+    <script src="data.js?v=105"></script>
     <script>
-        const GEMINI_KEY = "AQ.Ab8RN6JuA01V0mcme-d7P1UWFJ4cTJsHIJCAUr2yrdGGIsv8-Q";
+        const GEMINI_KEY = "AQ.Ab8RN6IsURxLFS3fKqXk7QObdedpllCuwMfmI7GT4nzc8_riDA";
 
         try {
             const tg = window.Telegram && window.Telegram.WebApp;
@@ -217,7 +217,7 @@
                         ${icon3D('bolt', 22)} НАЧАТЬ ТРЕНИРОВКИ
                     </button>
                 </div>
-                <div class="section-heading">${icon3D('target', 26)} <span>Разделы курса</span></div>
+                <div class="section-heading">${icon3D('fire', 26)} <span>Разделы курса</span></div>
                 <div class="grid-cards">
                     <div class="nav-card" onclick="navigate('nutrition')">
                         <div class="card-icon">${icon3D('plate', 34)}</div>
@@ -229,7 +229,7 @@
                     </div>
                     <div class="nav-card" onclick="navigate('workouts', null, true)">
                         <div class="card-icon">${icon3D('bolt', 34)}</div>
-                        <div class="card-body"><h3 class="card-title">Тренировки</h3><p class="card-desc">Full Body vs Split и генератор плана</p></div>
+                        <div class="card-body"><h3 class="card-title">Тренировки</h3><p class="card-desc">Full Body vs Split и конструктор плана</p></div>
                     </div>
                     <div class="nav-card" onclick="navigate('exercises')">
                         <div class="card-icon">${icon3D('biceps', 34)}</div>
@@ -237,7 +237,7 @@
                     </div>
                     <div class="nav-card" onclick="navigate('recovery')">
                         <div class="card-icon">${icon3D('sleep', 34)}</div>
-                        <div class="card-body"><h3 class="card-title">Восстановление</h3><p class="card-desc">Сон, ЦНС и суперкомпенсация</p></div>
+                        <div class="card-body"><h3 class="card-title">Восстановление</h3><p class="card-desc">Сон, минимум стресса и суперкомпенсация</p></div>
                     </div>
                     <div class="nav-card" onclick="navigate('supplements')">
                         <div class="card-icon">${icon3D('pill', 34)}</div>
@@ -270,14 +270,13 @@
                     </div>
                 `).join('') + `
                 <div class="info-card">
-                    <h3>${icon3D('target', 24)} Конструктор программы</h3>
+                    <h3>${icon3D('trophy', 24)} Конструктор программы</h3>
                     <div style="font-size:13px; color:var(--text-muted); margin-bottom:6px;">Твоя цель:</div>
                     <div class="pill-selector">
                         <button class="pill-btn ${builderState.goal==='hypertrophy'?'active':''}" onclick="setBuilder('goal','hypertrophy', this)">Набор массы</button>
-                        <button class="pill-btn ${builderState.goal==='fatloss'?'active':''}" onclick="setBuilder('goal','fatloss', this)">Сушка / Рельеф</button>
-                        <button class="pill-btn ${builderState.goal==='strength'?'active':''}" onclick="setBuilder('goal','strength', this)">Сила</button>
+                        <button class="pill-btn ${builderState.goal==='fatloss'?'active':''}" onclick="setBuilder('goal','fatloss', this)">Сушка / Рельеф (похудение)</button>
                     </div>
-                    <div style="font-size:13px; color:var(--text-muted); margin-bottom:6px;">Формат сплита:</div>
+                    <div style="font-size:13px; color:var(--text-muted); margin-bottom:6px;">Формат тренировок:</div>
                     <div class="pill-selector">
                         <button class="pill-btn ${builderState.programType==='FULL BODY'?'active':''}" onclick="setBuilder('programType','FULL BODY', this)">FULL BODY (3 дня)</button>
                         <button class="pill-btn ${builderState.programType==='SPLIT'?'active':''}" onclick="setBuilder('programType','SPLIT', this)">SPLIT (Раздельно)</button>
@@ -347,7 +346,7 @@
                     <span class="badge">Рабочие подходы: ${ex.recommendedSets} × ${ex.recommendedReps}</span>
                 </div>
                 <div class="info-card">
-                    <h3>${icon3D('target', 22)} Целевые мышцы</h3>
+                    <h3>${icon3D('fire', 22)} Целевые мышцы</h3>
                     <div class="info-block"><b>Основная:</b> ${ex.muscleGroup}</div>
                     <div class="info-block"><b>Синергисты (помогают):</b> ${ex.secondaryMuscles.join(', ')}</div>
                 </div>
@@ -385,7 +384,6 @@
                 `).join('');
         }
 
-        // РАЗДЕЛ КБЖУ + AI ПОДСЧЕТ КАЛОРИЙ ПО ФОТО СНИЗУ
         function renderKBJU(view) {
             view.innerHTML = `
                 <div class="section-heading">${icon3D('fire', 28)} <span>Расчет КБЖУ и AI Калории</span></div>
@@ -401,9 +399,9 @@
                         <option value="1.725">Высокая активность (5+ тренировок в нед.)</option>
                     </select>
                     <select id="calcGoal" class="input-field">
-                        <option value="loss">Похудение / Рельеф (Дефицит -15%)</option>
+                        <option value="loss">Сушка / Рельеф (похудение -15%)</option>
                         <option value="maint" selected>Поддержание текущей формы</option>
-                        <option value="gain">Набор мышечной массы (Профицит +15%)</option>
+                        <option value="gain">Набор мышечной массы (профицит +15%)</option>
                     </select>
                     <button class="btn-primary" onclick="calculateKBJU()">
                         ${icon3D('fire', 20)} Рассчитать мою норму КБЖУ
@@ -414,7 +412,7 @@
                 <div class="info-card">
                     <h3>${icon3D('camera', 26)} AI Подсчет калорий по фото</h3>
                     <p style="font-size:13.5px; color:var(--text-muted); margin-top:0;">
-                        Сфотографируй или выбери фото своей тарелки — нейросеть определит состав блюда, вес порции и посчитает примерное КБЖУ прямо здесь:
+                        Сфотографируй или выбери фото своей тарелки — нейросеть определит состав блюда, вес порции и посчитает примерное КБЖУ:
                     </p>
                     <input type="file" id="foodPhotoInput" accept="image/*" style="display:none" onchange="handleFoodPhoto(event)">
                     <button class="btn-primary" onclick="document.getElementById('foodPhotoInput').click()">
@@ -462,6 +460,31 @@
             `;
         }
 
+        function compressImage(file, maxWidth = 800) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > maxWidth) {
+                            height = Math.round((height * maxWidth) / width);
+                            width = maxWidth;
+                        }
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        resolve(canvas.toDataURL('image/jpeg', 0.82));
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
         async function handleFoodPhoto(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -470,41 +493,60 @@
             const imgEl = document.getElementById('foodPreviewImg');
             const outEl = document.getElementById('aiPhotoOutput');
 
-            const reader = new FileReader();
-            reader.onload = async function(ev) {
-                const dataUrl = ev.target.result;
-                wrap.style.display = 'block';
-                imgEl.src = dataUrl;
-                outEl.innerHTML = "🔍 <b>Gemini AI анализирует твоё блюдо и считает калории...</b>";
+            wrap.style.display = 'block';
+            outEl.innerHTML = "⏳ <b>Gemini AI изучает фото...</b>";
 
-                const base64Data = dataUrl.split(',')[1];
-                const mimeType = file.type || "image/jpeg";
+            try {
+                const compressedDataUrl = await compressImage(file, 800);
+                imgEl.src = compressedDataUrl;
+                const base64Data = compressedDataUrl.split(',')[1];
 
-                try {
-                    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`, {
+                const promptText =
+                    "Ты — строгий спортивный нутрициолог в приложении ZoomerGymCourse. " +
+                    "Внимательно посмотри на фото.\n" +
+                    "ПРАВИЛО 1: Если на фото НЕТ еды или напитков (например, там монитор, компьютер, человек, клавиатура, мебель, мем, пустой стол или животное), НЕ СЧИТАЙ калории! Напиши с юмором: '❌ Братан, на фото не еда (вижу: [напиши что на фото]). Мониторы и железки не содержат белка — сфоткай настоящую тарелку с едой!'\n" +
+                    "ПРАВИЛО 2: Если на фото ЕСТЬ еда, распиши кратко на русском:\n" +
+                    "1. 🍽 Что на тарелке и примерный вес порции (г).\n" +
+                    "2. 🔥 КБЖУ всей порции: Калории (ккал), Белки (г), Жиры (г), Углеводы (г).\n" +
+                    "3. 💪 Вердикт для формы (набор массы / сушка).";
+
+                const payload = {
+                    contents: [{
+                        role: "user",
+                        parts: [
+                            { text: promptText },
+                            { inlineData: { mimeType: "image/jpeg", data: base64Data } }
+                        ]
+                    }]
+                };
+
+                // Пробуем стандартный и Vertex endpoints для нового типа ключа AQ...
+                let resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!resp.ok) {
+                    resp = await fetch(`https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            contents: [{
-                                parts: [
-                                    { text: "Ты спортивный нутрициолог ZoomerGymCourse. Определи блюдо по фото и напиши кратко на русском:\n1. 🍽 Что на тарелке и примерный вес.\n2. 🔥 Итого КБЖУ: Калории (ккал), Белки (г), Жиры (г), Углеводы (г).\n3. 💡 Короткий вывод для формы." },
-                                    { inline_data: { mime_type: mimeType, data: base64Data } }
-                                ]
-                            }]
-                        })
+                        body: JSON.stringify(payload)
                     });
-                    const json = await resp.json();
-                    const aiText = json?.candidates?.[0]?.content?.parts?.[0]?.text;
-                    if (aiText) {
-                        outEl.innerHTML = aiText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-                        return;
-                    }
-                } catch (err) {}
+                }
 
-                // Надежный резервный расчет, если ключ ограничен браузером
-                outEl.innerHTML = `🍽 <b>Оценка порции на фото (~340 г):</b>\n🔥 <b>Калории:</b> ~510 ккал\n🥩 <b>Белки:</b> ~32 г | 🥑 <b>Жиры:</b> ~19 г | 🍚 <b>Углеводы:</b> ~48 г\n\n💡 <i>Сбалансированный прием пищи для роста мышц. Для детального разбора каждого ингредиента нажми кнопку ниже и отправь фото в чат боту!</i>`;
-            };
-            reader.readAsDataURL(file);
+                const json = await resp.json();
+                const aiText = json?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (aiText) {
+                    outEl.innerHTML = aiText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+                } else {
+                    const errMsg = json?.error?.message || "Не удалось получить текстовый ответ";
+                    outEl.innerHTML = `⚠️ <b>Ответ сервера AI:</b> ${errMsg}\n\n👉 <i>Нажми кнопку ниже и отправь фото напрямую в чат боту — там Python-клиент обработает его моментально!</i>`;
+                }
+            } catch (err) {
+                outEl.innerHTML = `❌ <b>Ошибка сети:</b> ${err.message}.\nНажми кнопку ниже и отправь фото в чат боту!`;
+            }
         }
 
         function renderProgress(view) {
